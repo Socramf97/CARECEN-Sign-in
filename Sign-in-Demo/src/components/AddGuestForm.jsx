@@ -84,7 +84,7 @@ function GuestAddForm({ onSuccess, isSpanish }){
 
     return (
         <div className="flex flex-1 items-center justify-center p-6">
-            <div className="w-full rounded-lg border-4 border-gray-200 bg-transparent p-8">
+            <div className="w-full rounded-lg border-2 border-gray-200 bg-transparent p-8">
                 <h2 className="mb-6 text-2xl font-semibold text-white">{t.title}</h2>
 
                 <form id='add-item-form' onSubmit={handleSubmit} className="flex flex-col gap-5">

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { supabase } from "../../db/db.js";
-import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
+import { Dialog, DialogPanel, DialogTitle, CloseButton } from "@headlessui/react";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 
 
 function StaffAddForm({ onSuccess, isOpen, onClose}){
@@ -59,14 +60,17 @@ function StaffAddForm({ onSuccess, isOpen, onClose}){
     const inputClasses = "w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-white";
 
     return (
-        <Dialog open={isOpen} onClose={onClose} className="relative z-50">
+        <Dialog open={isOpen} onClose={() => {}} className="relative z-50">
         {/* Backdrop */}
 
         <div className="fixed inset-0 bg-black/55" aria-hidden="true" />
 
         <div className="fixed inset-0 flex w-screen items-center justify-center p-6">
         <DialogPanel className="w-full max-w-4xl gap-5 rounded-xl border border-neutral-800 bg-neutral-800 py-2 px-7 text-sm/6 text-white">
-        <DialogTitle className="text-xl font-semibold text-white p-6">Add Staff</DialogTitle>
+        <div className='form-title-container relative flex items-center justify-center gap-2 text-left px-3'>
+            <DialogTitle className="text-xl font-semibold text-white p-6">Add Staff</DialogTitle>
+            <CloseButton onClick={onClose} className=" absolute right-3 top-3 font-semibold text-white p-1 bg-neutral-500"> <XMarkIcon className="h-6 w-6"></XMarkIcon> </CloseButton>
+        </div>
             <div className="w-full rounded-lg border-2 bg-neutral-800 border-white-800 p-8">
                     <form id='add-item-form' onSubmit={handleSubmit} className="flex flex-col gap-5">
                         <fieldset className="flex flex-col gap-5">

@@ -38,7 +38,7 @@ function StaffTable(){
         <div className="buttonContainer flex justify-between px-8">
           <div className="addButtonSpace"></div>
           <button 
-            className="flex px-8 py-2 "
+            className="flex px-8 py-2 bg-neutral-500 "
             id='add-staff-button' 
             onClick={() => setShowForm(!showForm)}>
             {showForm ? "Cancel" : 'Add Staff'}
