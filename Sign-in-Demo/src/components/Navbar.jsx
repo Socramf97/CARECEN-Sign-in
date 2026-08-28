@@ -7,9 +7,9 @@ import { supabase } from "../../db/db.js";
 import { useAuth } from '../context/AuthSession.jsx'
 
 const navigation = [
-  { name: 'Staff', href: '/staff', current: true },
-  { name: 'Guests', href: '/guests', current: false },
-  { name: 'Calendar', href: '#', current: false },
+    { name: 'Staff Check-in', href: '/staff-checkin', current: false },
+    { name: 'Guests', href: '/guests', current: false },
+    { name: 'Staff List', href: '/staff-list', current: true },
 ]
 
 async function handleGoogleLogin() { 
