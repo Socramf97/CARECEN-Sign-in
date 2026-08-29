@@ -12,11 +12,11 @@ const navigation = [
 function HomeBody(){
     
     return (
-      <main className="mx-auto max-w-6xl w-full p-6 flex flex-col gap-8">
-        <div className=" h-10"></div>
-            <div className="flex flex-row gap-20 p-10">
+      <main className="mx-auto max-w-6xl w-full h-full px-8 py-2 md:p-6 flex flex-col gap-3 md:gap-10">
+        <div className="p-2"></div>
+            <div className="Links-container flex flex-1 flex-col min-h-0 gap-10 md:flex-row md:gap-20 md:p-10">
                 {navigation.map((item) => (
-                    <Link key={item.name} to={item.href} className= "flex-1 text-3xl items-center content-center gap-20 h-75 w-120 bg-neutral-500 transition-transform duration-200 hover:scale-105 font-semibold  text-black">
+                    <Link key={item.name} to={item.href} className= "flex flex-1 aspect-square p-5 text-xl md:text-3xl items-center justify-center gap-10 bg-neutral-500 transition-transform duration-200 hover:scale-105 font-semibold  text-black">
                         {item.name}
                     </Link>
                 ))}

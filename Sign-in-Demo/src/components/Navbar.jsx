@@ -5,12 +5,14 @@ import { classNames } from '../utilities/classNames'
 import logo from '../photos/Picture1.png'
 import { supabase } from "../../db/db.js";
 import { useAuth } from '../context/AuthSession.jsx'
+import { useState } from 'react'
 
 const navigation = [
     { name: 'Staff Check-in', href: '/staff-checkin', current: false },
     { name: 'Guests', href: '/guests', current: false },
     { name: 'Staff List', href: '/staff-list', current: true },
 ]
+
 
 async function handleGoogleLogin() { 
 
@@ -34,35 +36,34 @@ async function handleSignOut() {
 function Navbar(){
     const {session} = useAuth()
     const location = useLocation()
-
     const hideLinks = ['/', '/home'] 
     const showLinks = !hideLinks.includes(location.pathname)
 
   return (
-    <div className="">
-      <header className="py-2 px-5">
-        <nav className="flex items-center justify-between p-3 ">
-        <div className="flex flex-1 px-3"> 
-            <Link to="/home">
-                <img src={logo} alt="organization-logo" className="h-15 w-auto" />
-            </Link>
-        </div>
-        { showLinks && (
-          <div className="flex justify-between gap-20">
-            {navigation.map((item) => (
-              <Link key={item.name} to={item.href} className= "font-semibold text-white">
-                {item.name}
-              </Link>
-            ))}
-          </div>
-          )}
-          <div className="flex flex-1 justify-end">
-                {session ? (
-                <button type='button' className="text-sm/6 font-semibold text-white"
-                 onClick={() => handleSignOut()}> Log out </button>
-                ):(<button type='button' className="text-sm/6 font-semibold text-white"
-                 onClick={() => handleGoogleLogin()}> Log in <span aria-hidden="true">&rarr;</span></button>)}
-          </div>
+    <div className="navbar-container ">
+      <header className="max-w-full">
+        <nav className="flex items-center justify-between px-2 py-3 md:px-8 ">
+            <div className="flex flex-1 px-3"> 
+                <Link to="/home">
+                    <img src={logo} alt="organization-logo" className="h-15 w-auto" />
+                </Link>
+            </div>
+            { showLinks && (
+            <div className="flex justify-between gap-5 md:gap-20">
+                {navigation.map((item) => (
+                <Link key={item.name} to={item.href} className= "text-xs md:text-lg font-semibold text-white">
+                    {item.name}
+                </Link>
+                ))}
+            </div>
+            )}
+            <div className="flex flex-1 justify-end">
+                    {session ? (
+                    <button type='button' className="text-xs md:text-lg font-semibold text-white"
+                    onClick={() => handleSignOut()}> Log out </button>
+                    ):(<button type='button' className="text-xs md:text-lg font-semibold text-white"
+                    onClick={() => handleGoogleLogin()}> Log in <span aria-hidden="true">&rarr;</span></button>)}
+            </div>
         </nav>
       </header>
     </div>

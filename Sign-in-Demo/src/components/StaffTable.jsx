@@ -10,9 +10,7 @@ function StaffTable(){
   const [editStaff, setEditStaff] = useState(null); 
   const [sortStaffLastName, setSortStaffLastName] = useState('none');
   const [sortStaffFirstName, setSortStaffFirstName] = useState('none');
-  const [sortStaffMiddleName, setSortStaffMiddleName] = useState('none');
   const [sortDepartment, setSortDepartment] = useState('none');
-  const [sortStaffActive, setSortStaffActive] = useState('none');
   const [originalStaff, setOriginalStaff] = useState([])
 
 
@@ -32,10 +30,10 @@ function StaffTable(){
   }, []);
 
  return (
-    <div className="main-container flex flex-col gap-2 p-1 text-2xl text-white" >
-      <h2 className=" flex allign-left px-3">Staff </h2>
+    <div className="section-container flex flex-col w-full h-full gap-2 p-1 text-2xl text-white" >
+      <h2 className="title-container flex allign-left px-3">Staff </h2>
       <div className="display-container flex flex-col gap-5 rounded-xl border border-white/5 bg-white/5 py-2 px-7 text-sm/6 text-white">
-        <div className="buttonContainer flex justify-between px-8">
+        <div className="button-container flex justify-between px-8">
           <div className="addButtonSpace"></div>
           <button 
             className="flex px-8 py-2 bg-neutral-500 "
@@ -44,7 +42,8 @@ function StaffTable(){
             {showForm ? "Cancel" : 'Add Staff'}
           </button>
         </div>
-          <table>
+        <div className="table-container overflow-x-auto overflow-y-auto ">
+          <table className="whitespace-nowrap">
             <thead className="divide-y divide-white/5 gap-x-8 py-9">
               <tr>
                 <th className="table-column-head">
@@ -91,27 +90,6 @@ function StaffTable(){
                 </th>
                 <th className="table-column-head">
                   <div className='th-content-container flex flex-row gap-2 px-3'>
-                    staffMiddleName
-                    <button className="sorting-buttons w-fit mx-auto bg-transparent" id='sort-type-button' onClick={() => {
-                            if (sortStaffMiddleName === 'none') {  //if its our first click, we want the logic to show for the next state, not the current state
-                            const ascending = [...staff].sort((a, b) => a.staffMiddleName.localeCompare(b.staffMiddleName));
-                            setStaff(ascending);
-                            setSortStaffMiddleName('asc')
-                            } else if (sortStaffMiddleName === 'asc') {
-                            const descending = [...staff].sort((a, b) => b.staffMiddleName.localeCompare(a.staffMiddleName));
-                            setStaff(descending);
-                            setSortStaffMiddleName('desc')
-                            } else if (sortStaffMiddleName === 'desc') {
-                            setStaff(originalStaff);
-                            setSortStaffMiddleName('none')
-                            }
-                        }}>
-                        {sortStaffMiddleName === 'none' ? <ChevronUpDownIcon className="size-5"/>: sortStaffMiddleName === 'asc' ? <ChevronDownIcon className="size-5"/> : sortStaffMiddleName === 'desc' ? <ChevronUpIcon className="size-5"/>: null}
-                    </button>
-                    </div>
-                </th>
-                <th className="table-column-head">
-                  <div className='th-content-container flex flex-row gap-2 px-3'>
                     Department
                     <button className="sorting-buttons w-fit mx-auto bg-transparent" id='sort-purchaseDate-button' onClick={() => {
                         if (sortDepartment === 'none') {  //if its our first click, we want the logic to show for the next state, not the current state
@@ -133,23 +111,22 @@ function StaffTable(){
                 </th>
                 <th className="table-column-head">
                   <div className='th-content-container flex flex-row gap-2 px-3'>
-                    Active
-                    <button className="sorting-buttons w-fit mx-auto bg-transparent" id='sort-expirationDate-button' onClick={() => {
-                        if (sortStaffActive === 'none') {  //if its our first click, we want the logic to show for the next state, not the current state
-                            const ascending = [...staff].sort((a, b) => a.staffActive.localeCompare(b.staffActive));
-                            setStaff(ascending); 
-                            setSortStaffActive('asc')
-                        } else if (sortStaffActive === 'asc') {
-                            const descending = [...staff].sort((a, b) => b.staffActive.localeCompare(a.staffActive));
-                            setStaff(descending);
-                            setSortStaffActive('desc')
-                        } else if (sortStaffActive === 'desc') {
-                            setStaff(originalStaff);
-                            setSortStaffActive('none')
-                        }
-                    }}>
-                    {sortStaffActive === 'none' ? <ChevronUpDownIcon className="size-5"/> : sortStaffActive === 'asc' ? <ChevronDownIcon className="size-5"/> : sortStaffActive === 'desc' ? <ChevronUpIcon className="size-5"/>: null}
-                    </button>
+                    Email
+                  </div>
+                </th>
+                <th className="table-column-head">
+                  <div className='th-content-container flex flex-row gap-2 px-3'>
+                    Extension
+                  </div>
+                </th>
+                <th className="table-column-head">
+                  <div className='th-content-container flex flex-row gap-2 px-3'>
+                    Direct Line
+                  </div>
+                </th>
+                <th className="table-column-head">
+                  <div className='th-content-container flex flex-row gap-2 px-3'>
+                    Position
                   </div>
                 </th>
                 {/* buttons column */}
@@ -168,6 +145,7 @@ function StaffTable(){
               ))}
             </tbody>
           </table>
+        </div>
         </div>
          < StaffAddForm
          onSuccess={fetchStaff} 
