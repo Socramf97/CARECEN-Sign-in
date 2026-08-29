@@ -42,13 +42,13 @@ function CheckIn(){
         <div className="main-container flex flex-col gap-8 p-2 text-2xl text-white" >
             {departments.map(dept => (
             <div key={dept} className={`${dept}-container flex flex-col gap-2 px-10 py-4 text-2xl text-white`}>
-                <h2  className=" flex allign-left px-3"> {dept}</h2>
+                <h2  className=" flex allign-left px-3 py-2 text-3xl"> {dept}</h2>
                     <div className="staff-container grid grid-cols-3 gap-x-20 gap-y-10  px-6 py-2 text-2xl text-white">
                         {staff
                         .filter(s => s.department === dept)
                         .sort((a,b) => statusOrder[a.currentStatus] - statusOrder[b.currentStatus])
                         .map(s =>(
-                            <div key={s.staffID} className="staff-card-container flex flex-row justify-between gap-2 px-2 py-2 rounded-xl text-xl text-white bg-neutral-600" >
+                            <div key={s.staffID} className="staff-card-container flex flex-row justify-between gap-2 px-2 py-2 rounded-xl text-xl text-white bg-neutral-600 transition-transform duration-200 hover:scale-105" >
                                 <div className="text-container flex-1 flex-col gap-2 py-1 px-2 text-xl text-left text-white">
                                     {s.staffFirstName} {s.staffLastName}
                                 </div>
