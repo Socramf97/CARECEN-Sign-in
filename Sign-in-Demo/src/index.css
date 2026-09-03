@@ -4,10 +4,12 @@
   font-family: Raleway, sans-serif, system-ui, Helvetica,;
   line-height: 1.5;
   font-weight: 400;
+  max-width: 100vw;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
+
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -31,7 +33,7 @@ a:hover {
 body {
   margin: 0;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 h1 {
@@ -41,7 +43,6 @@ h1 {
 
 button {
   border-radius: 8px;
-  font-size: 1em;
   font-weight: 500;
   font-family: inherit;
   cursor: pointer;

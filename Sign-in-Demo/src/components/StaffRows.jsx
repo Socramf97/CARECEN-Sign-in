@@ -10,6 +10,7 @@ function StaffRow({staff, setEditStaff, editStaff, fetchStaff}){
     const [staffMiddleName, setStaffMiddleName] = useState(staff.staffMiddleName);
     const [staffDept, setStaffDept] = useState(staff.department);
     const [staffPhoneNum, setStaffPhoneNum] = useState(staff.staffPhoneNumber);
+    const [staffExtension, setStaffExtension] = useState(staff.extension);
     const [staffEmail, setStaffEmail] = useState(staff.staffEmail);
     const [staffPosition, setStaffPosition] = useState(staff.staffJobTitle)
     const [staffStatus, setStaffStatus] = useState(staff.staffActive)
@@ -28,6 +29,7 @@ function StaffRow({staff, setEditStaff, editStaff, fetchStaff}){
                 </select>
     const inputStaffPhoneNum = <input type='text' id='input-staff-phoneNumber' value={staffPhoneNum} onChange={e => setStaffPhoneNum(e.target.value)}></input>
     const inputStaffEmail = <input type='text' id='input-staff-email' value={staffEmail} onChange={e => setStaffEmail(e.target.value)}></input>
+    const inputStaffExtension = <input type='text' id='input-staff-extension' value={staffExtension} onChange={e => setStaffExtension(e.target.value)}></input>
     const inputStaffJobTitle = <input type='text' id='input-staff-jobtitle' value={staffPosition} onChange={e => setStaffPosition(e.target.value)}></input>
     const inputStaffStatus = <select id="input-staff-status" value={staffStatus} onChange={e => setStaffStatus(e.target.value)}>
                     <option value="">-- Select Current Status --</option>
@@ -46,6 +48,7 @@ function StaffRow({staff, setEditStaff, editStaff, fetchStaff}){
             department: staffDept,
             staffPhoneNumber: staffPhoneNum,
             staffEmail: staffEmail,
+            extension: staffExtension,
             staffActive: staffStatus,
             staffJobTitle: staffPosition
         };
@@ -75,11 +78,11 @@ function StaffRow({staff, setEditStaff, editStaff, fetchStaff}){
         <tr id = "table-sections" className="divide-y divide-white/5 gap-x-6 py-5 px-3">
               <td className="py-4 px-3 text-left">{isEditing ? inputStaffLastName : staff.staffLastName}</td>
               <td className="py-4 px-3 text-left">{isEditing ? inputStaffFirstName : staff.staffFirstName}</td>
-              <td className="py-4 px-3 text-left">{isEditing ? inputStaffMiddleName : staff.staffMiddleName}</td>
               <td className="py-4 px-3 text-left">{isEditing ? inputStaffDepartment :staff.department}</td>
-              <td className="py-4 px-3 text-left">{isEditing ? inputStaffPhoneNum :staff.staffPhoneNum}</td>
               <td className="py-4 px-3 text-left">{isEditing ? inputStaffEmail :staff.staffEmail}</td>
-              <td className="py-4 px-3 text-left">{isEditing ? inputStaffJobTitle :staff.staffPosition}</td>              
+              <td className="py-4 px-3 text-left">{isEditing ? inputStaffExtension :staff.extension}</td>
+              <td className="py-4 px-3 text-left">{isEditing ? inputStaffPhoneNum :staff.staffPhoneNumber}</td>
+              <td className="py-4 px-3 text-left">{isEditing ? inputStaffJobTitle :staff.staffJobTitle}</td>              
               <td className="py-4 px-3 text-left">{isEditing ? inputStaffStatus :staff.staffStatus}</td>    
               <td id="row-buttons" className="py-1 px-1 text-left"> 
                 <div>
