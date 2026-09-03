@@ -86,7 +86,7 @@ function StaffRow({staff, setEditStaff, editStaff, fetchStaff}){
               <td className="py-4 px-3 text-left">{isEditing ? inputStaffStatus :staff.staffStatus}</td>    
               <td id="row-buttons" className="py-1 px-1 text-left"> 
                 <div>
-                  <Menu>
+             {/*     <Menu>
                     <MenuButton 
                     className="gap-2 px-1 py-1.5">
                       <EllipsisVerticalIcon className="size-5" />
@@ -113,7 +113,7 @@ function StaffRow({staff, setEditStaff, editStaff, fetchStaff}){
                         </button> 
                       </MenuItem>
                     </MenuItems>
-                  </Menu>
+                  </Menu> */}
                 </div>
               </td>
         </tr>
