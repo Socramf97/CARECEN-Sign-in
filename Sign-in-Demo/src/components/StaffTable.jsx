@@ -35,12 +35,12 @@ function StaffTable(){
       <div className="display-container flex flex-col gap-5 rounded-xl border border-white/5 bg-white/5 py-2 px-7 text-sm/6 text-white">
         <div className="button-container flex justify-between px-8">
           <div className="addButtonSpace"></div>
-          <button 
+          {/*<button 
             className="flex px-8 py-2 bg-neutral-500 "
             id='add-staff-button' 
             onClick={() => setShowForm(!showForm)}>
             {showForm ? "Cancel" : 'Add Staff'}
-          </button>
+          </button> */}
         </div>
         <div className="table-container overflow-x-auto overflow-y-auto ">
           <table className="whitespace-nowrap">
