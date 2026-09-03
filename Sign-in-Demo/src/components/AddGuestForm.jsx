@@ -121,7 +121,7 @@ function GuestAddForm({ onSuccess, isSpanish }){
                         </div>
 
                     </fieldset>
-                    <button className=" self-center w-sm mt-2 rounded-md bg-white px-4 py-2 font-semibold text-gray-900 hover:bg-gray-200" id='submit-gust-button' type="submit">{t.submit}</button>
+                    <button className=" self-center w-2xs  md:w-sm mt-2 rounded-md bg-white px-4 py-2 font-semibold text-gray-900 hover:bg-gray-200" id='submit-gust-button' type="submit">{t.submit}</button>
                 </form>
             </div>
         </div>
