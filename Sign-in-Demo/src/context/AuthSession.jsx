@@ -14,11 +14,13 @@ function AuthProvider({children}){
         async function loadSession() {         /// Check for exisiting session
             const {data} = await supabase.auth.getSession()
             setSession(data.session) 
+            if (data.session) supabase.rpc('claim_staff_row')
         }
         loadSession()
         /// Keeps track when user logs in/out
         const {data: listener } = supabase.auth.onAuthStateChange((event, newSession)=>{
             setSession(newSession)
+            if (newSession) supabase.rpc('claim_staff_row')
         })
 
         return () =>{

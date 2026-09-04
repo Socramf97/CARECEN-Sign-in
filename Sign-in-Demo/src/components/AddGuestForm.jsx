@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { supabase } from "../../db/db.js";
+import { Dialog, DialogPanel, DialogTitle, CloseButton } from "@headlessui/react";
 
 const translations = {
     en: {
@@ -19,6 +20,7 @@ const translations = {
             Legal: "Legal",
             "Second Chance Tattoo Removal": "Second Chance Tattoo Removal",
         },
+        success: "Thank you for signing in!"
     },
     es: {
         title: "Registracion",
@@ -36,18 +38,27 @@ const translations = {
             Legal: "Legal",
             "Second Chance Tatto Removal": "Programa de Tatuajes Segunda Oportunidad",
         },
+        success: "Gracias por registrarse!"
     },
 };
+
 
 function GuestAddForm({ onSuccess, isSpanish }){
     const [guestLastName, setGuestLastName] = useState("");
     const [guestFirstName, setGuestFirstName] = useState("");
-    const [guestMiddleName, setGuestMiddleName] = useState("");
     const [departmentVisit, setDepartmentVisit] = useState("");
     const [guestPhoneNum, setGuestPhoneNum] = useState("");
     const [guestEmail, setGuestEmail] = useState("");
-
+    const [showSuccess, setShowSuccess] = useState(false)
     const t = translations[isSpanish ? "es" : "en"];
+
+    useEffect(() => {
+        if (showSuccess) {
+            const timer = setTimeout(() => setShowSuccess(false), 5500);
+            return () => clearTimeout(timer);
+        }
+    }, [showSuccess]);
+   
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -55,7 +66,6 @@ function GuestAddForm({ onSuccess, isSpanish }){
         const guest = {
             visitorLastName: guestLastName,
             visitorFirstName: guestFirstName,
-            visitorMiddleName:  guestMiddleName,
             department: departmentVisit,
             visitorPhoneNumber: guestPhoneNum,
             visitorEmail: guestEmail
@@ -68,13 +78,15 @@ function GuestAddForm({ onSuccess, isSpanish }){
             return;
         }
 
+        setShowSuccess(true);
+
+
         // Optionally refresh parent table
         if (onSuccess) onSuccess();
 
         // Clear form fields
         setGuestLastName("");
         setGuestFirstName("");
-        setGuestMiddleName("");
         setDepartmentVisit("");
         setGuestPhoneNum("");
         setGuestEmail("");
@@ -122,6 +134,16 @@ function GuestAddForm({ onSuccess, isSpanish }){
 
                     </fieldset>
                     <button className=" self-center w-3xs md:w-sm mt-2 rounded-md bg-white px-4 py-2 font-semibold text-gray-900 hover:bg-gray-200" id='submit-gust-button' type="submit">{t.submit}</button>
+                    <Dialog open={showSuccess} onClose={() => setShowSuccess(false)} className="relative z-50">
+                        <div className="fixed inset-0 bg-black/85" aria-hidden="true" />
+                        <div className="fixed inset-0 flex items-center justify-center p-6">
+                            <DialogPanel className="rounded-xl bg-neutral-800 p-15 text-white text-center border-1 border-white">
+                                <DialogTitle className="text-xl font-semibold">
+                                    {t.success}
+                                </DialogTitle>
+                            </DialogPanel>
+                        </div>
+                    </Dialog>
                 </form>
             </div>
         </div>
