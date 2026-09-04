@@ -42,7 +42,7 @@ function StaffTable(){
             {showForm ? "Cancel" : 'Add Staff'}
           </button> */}
         </div>
-        <div className="table-container overflow-x-auto overflow-y-auto ">
+        <div className="table-container overflow-x-auto overflow-y-auto max-h-[70vh]">
           <table className="whitespace-nowrap">
             <thead className="divide-y divide-white/5 gap-x-8 py-9">
               <tr>

@@ -83,9 +83,9 @@ function GuestAddForm({ onSuccess, isSpanish }){
     const inputClasses = "w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-white";
 
     return (
-        <div className="flex flex-1 items-center justify-center p-6">
-            <div className="w-full rounded-lg border-2  bg-neutral-700 p-8">
-                <h2 className="mb-6 text-2xl font-semibold text-white">{t.title}</h2>
+        <div className="flex flex-1 items-center justify-center md:p-3 p-6">
+            <div className="w-full rounded-lg border-2  bg-neutral-700 p-5 md:p-8">
+                <h2 className="mb-6 text-xl md:text-2xl font-semibold text-white">{t.title}</h2>
 
                 <form id='add-item-form' onSubmit={handleSubmit} className="flex flex-col gap-5">
                     <fieldset className="flex flex-col gap-5">

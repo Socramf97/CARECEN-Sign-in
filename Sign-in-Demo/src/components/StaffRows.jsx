@@ -75,15 +75,15 @@ function StaffRow({staff, setEditStaff, editStaff, fetchStaff}){
     }
 
   return (
-        <tr id = "table-sections" className="divide-y divide-white/5 gap-x-6 py-5 px-3">
-              <td className="py-4 px-3 text-left">{isEditing ? inputStaffLastName : staff.staffLastName}</td>
-              <td className="py-4 px-3 text-left">{isEditing ? inputStaffFirstName : staff.staffFirstName}</td>
-              <td className="py-4 px-3 text-left">{isEditing ? inputStaffDepartment :staff.department}</td>
-              <td className="py-4 px-3 text-left">{isEditing ? inputStaffEmail :staff.staffEmail}</td>
-              <td className="py-4 px-3 text-left">{isEditing ? inputStaffExtension :staff.extension}</td>
-              <td className="py-4 px-3 text-left">{isEditing ? inputStaffPhoneNum :staff.staffPhoneNumber}</td>
-              <td className="py-4 px-3 text-left">{isEditing ? inputStaffJobTitle :staff.staffJobTitle}</td>              
-              <td className="py-4 px-3 text-left">{isEditing ? inputStaffStatus :staff.staffStatus}</td>    
+        <tr id = "table-sections" className="divide-y divide-white/5 gap-x-3 md:gap-x-6 py-2 md:py-5 px-2 md:px-3">
+              <td className="p-2 md:py-4 md:px-3 text-left sm:text-xs">{isEditing ? inputStaffLastName : staff.staffLastName}</td>
+              <td className="p-2 md:py-4 md:px-3 text-left sm:text-xs">{isEditing ? inputStaffFirstName : staff.staffFirstName}</td>
+              <td className="p-2 md:py-4 md:px-3 text-left sm:text-xs">{isEditing ? inputStaffDepartment :staff.department}</td>
+              <td className="p-2 md:py-4 md:px-3 text-left sm:text-xs">{isEditing ? inputStaffEmail :staff.staffEmail}</td>
+              <td className="p-2 md:py-4 md:px-3 text-left sm:text-xs">{isEditing ? inputStaffExtension :staff.extension}</td>
+              <td className="p-2 md:py-4 md:px-3 text-left sm:text-xs">{isEditing ? inputStaffPhoneNum :staff.staffPhoneNumber}</td>
+              <td className="p-2 md:py-4 md:px-3 text-left sm:text-xs">{isEditing ? inputStaffJobTitle :staff.staffJobTitle}</td>              
+              <td className="p-2 md:py-4 md:px-3 text-left sm:text-xs">{isEditing ? inputStaffStatus :staff.staffStatus}</td>    
               <td id="row-buttons" className="py-1 px-1 text-left"> 
                 <div>
              {/*     <Menu>

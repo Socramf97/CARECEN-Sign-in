@@ -16,7 +16,7 @@ const navigation = [
 
 async function handleGoogleLogin() { 
 
-    const {data, error} = await supabase.auth.signInWithOAuth({provider: 'google'});
+    const {data, error} = await supabase.auth.signInWithOAuth({provider: 'google',  options: { redirectTo: window.location.origin }});
     if (error) {
         console.error("Error authorizing user:", error);
         return;
@@ -44,8 +44,8 @@ function Navbar(){
       <header className="max-w-full">
         <nav className="flex items-center justify-between px-2 py-3 md:px-8 ">
             <div className="flex flex-1 px-3"> 
-                <Link to="/home">
-                    <img src={logo} alt="organization-logo" className="h-15 w-auto" />
+                <Link to="/">
+                    <img src={logo} alt="organization-logo" className="h-15 w-auto;" />
                 </Link>
             </div>
             { showLinks && (
@@ -59,9 +59,9 @@ function Navbar(){
             )}
             <div className="flex flex-1 justify-end">
                     {session ? (
-                    <button type='button' className="text-xs md:text-lg font-semibold text-white"
+                    <button type='button' className="text-xs md:text-lg font-semibold text-white hover:text-neutral-300 bg-neutral-600 p-1 transition-transform duration-200 hover:scale-105"
                     onClick={() => handleSignOut()}> Log out </button>
-                    ):(<button type='button' className="text-xs md:text-lg font-semibold text-white"
+                    ):(<button type='button' className="text-xs md:text-lg font-semibold text-white hover:text-neutral-300 bg-neutral-600 p-1 transition-transform duration-200 hover:scale-105"
                     onClick={() => handleGoogleLogin()}> Log in <span aria-hidden="true">&rarr;</span></button>)}
             </div>
         </nav>

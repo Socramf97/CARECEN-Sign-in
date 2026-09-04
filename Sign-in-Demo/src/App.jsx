@@ -17,8 +17,8 @@ function App() {
     <AuthProvider>
       <Navbar/>
         <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
+        {/*  <Route path="/home" element={<HomePage />} /> */}
           <Route path="/staff-checkin" element={<StaffCheckIn />} />
           <Route path="/guests" element={<GuestsPage />} />
           <Route path="/staff-list" element={<StaffPage />} />

@@ -27,7 +27,7 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: #dadada;
+  color: #dadadadb;
 }
 
 body {
@@ -64,17 +64,4 @@ button:focus-visible {
 
 #add-item-button{
   background-color: #242424;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }
