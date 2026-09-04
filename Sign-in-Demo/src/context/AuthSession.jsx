@@ -14,13 +14,19 @@ function AuthProvider({children}){
         async function loadSession() {         /// Check for exisiting session
             const {data} = await supabase.auth.getSession()
             setSession(data.session) 
-            if (data.session) supabase.rpc('claim_staff_row')
+            if (data.session) {
+                const { error } = await supabase.rpc('claim_staff_row')
+                if (error) console.error('Error claiming staff row:', error)
+            }
         }
         loadSession()
         /// Keeps track when user logs in/out
-        const {data: listener } = supabase.auth.onAuthStateChange((event, newSession)=>{
+        const {data: listener } = supabase.auth.onAuthStateChange(async (event, newSession)=>{
             setSession(newSession)
-            if (newSession) supabase.rpc('claim_staff_row')
+            if (newSession) {
+                const { error } = await supabase.rpc('claim_staff_row')
+                if (error) console.error('Error claiming staff row:', error)
+            }
         })
 
         return () =>{

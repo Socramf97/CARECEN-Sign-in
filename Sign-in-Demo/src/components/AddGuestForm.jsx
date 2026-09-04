@@ -137,7 +137,7 @@ function GuestAddForm({ onSuccess, isSpanish }){
                     <Dialog open={showSuccess} onClose={() => setShowSuccess(false)} className="relative z-50">
                         <div className="fixed inset-0 bg-black/85" aria-hidden="true" />
                         <div className="fixed inset-0 flex items-center justify-center p-6">
-                            <DialogPanel className="rounded-xl bg-neutral-800 p-15 text-white text-center border-1 border-white">
+                            <DialogPanel className="rounded-xl bg-neutral-800 p-15 text-white text-center border border-white">
                                 <DialogTitle className="text-xl font-semibold">
                                     {t.success}
                                 </DialogTitle>
